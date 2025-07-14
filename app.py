@@ -8,13 +8,7 @@ import PyPDF2
 from pdf2image import convert_from_path
 import google.generativeai as genai
 
-# Set up Gemini API
-API_KEY = st.secret["Gemini_API_Key"]
-
-if not API_KEY:
-    st.error('GOOGLE_API_KEY environment variable not set.')
-    st.stop()
-genai.configure(api_key=API_KEY)
+genai.configure(api_key=st.secrets["Gemini_API_Key"])
 
 st.title('Contract Risk Analyzer (Gemini AI)')
 
