@@ -8,10 +8,9 @@ import PyPDF2
 from pdf2image import convert_from_path
 import google.generativeai as genai
 
-genai.configure(api_key=st.secrets["Gemini_API_Key"])
+genai.configure(api_key= os.getenv('GEMINI_API_KEY'))
 
 st.title('Contract Risk Analyzer (Gemini AI)')
-
 uploaded_file = st.file_uploader('Upload a legal document (PDF, DOCX, or image)', type=['pdf', 'docx', 'png', 'jpg', 'jpeg'])
 
 
